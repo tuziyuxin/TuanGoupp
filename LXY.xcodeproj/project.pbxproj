@@ -7,25 +7,38 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		85514C2E6ABA3C5A737258F8 /* libPods-LXY.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FBC5354CEEF3E704C4C0FC9 /* libPods-LXY.a */; };
+		B633608A1DB2717700F5F951 /* Icons in Resources */ = {isa = PBXBuildFile; fileRef = B63360891DB2717700F5F951 /* Icons */; };
+		B686B3E11DB3185700C1E965 /* First.m in Sources */ = {isa = PBXBuildFile; fileRef = B686B3E01DB3185700C1E965 /* First.m */; };
+		B686B3E41DB3258300C1E965 /* UIImage+AddImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B686B3E31DB3258300C1E965 /* UIImage+AddImage.m */; };
+		B686B3EE1DB3479000C1E965 /* MyNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = B686B3ED1DB3479000C1E965 /* MyNavigation.m */; };
+		B686B3F01DB34CDB00C1E965 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = B686B3EF1DB34CDB00C1E965 /* View.xib */; };
+		B686B3F31DB34D0F00C1E965 /* BarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B686B3F21DB34D0F00C1E965 /* BarView.m */; };
 		B69491A11DAB59E400BDD440 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B69491A01DAB59E400BDD440 /* main.m */; };
 		B69491A41DAB59E400BDD440 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B69491A31DAB59E400BDD440 /* AppDelegate.m */; };
-		B69491A71DAB59E400BDD440 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B69491A61DAB59E400BDD440 /* ViewController.m */; };
-		B69491AA1DAB59E400BDD440 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B69491A81DAB59E400BDD440 /* Main.storyboard */; };
 		B69491AC1DAB59E400BDD440 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B69491AB1DAB59E400BDD440 /* Assets.xcassets */; };
-		B69491AF1DAB59E400BDD440 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B69491AD1DAB59E400BDD440 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7FBC5354CEEF3E704C4C0FC9 /* libPods-LXY.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-LXY.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		93A959B3AEDEBF558C472E3A /* Pods-LXY.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LXY.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LXY/Pods-LXY.debug.xcconfig"; sourceTree = "<group>"; };
+		B63360891DB2717700F5F951 /* Icons */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Icons; sourceTree = "<group>"; };
+		B686B3DF1DB3185700C1E965 /* First.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = First.h; sourceTree = "<group>"; };
+		B686B3E01DB3185700C1E965 /* First.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = First.m; sourceTree = "<group>"; };
+		B686B3E21DB3258300C1E965 /* UIImage+AddImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AddImage.h"; sourceTree = "<group>"; };
+		B686B3E31DB3258300C1E965 /* UIImage+AddImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AddImage.m"; sourceTree = "<group>"; };
+		B686B3EC1DB3479000C1E965 /* MyNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavigation.h; sourceTree = "<group>"; };
+		B686B3ED1DB3479000C1E965 /* MyNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavigation.m; sourceTree = "<group>"; };
+		B686B3EF1DB34CDB00C1E965 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		B686B3F11DB34D0F00C1E965 /* BarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarView.h; sourceTree = "<group>"; };
+		B686B3F21DB34D0F00C1E965 /* BarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarView.m; sourceTree = "<group>"; };
 		B694919C1DAB59E300BDD440 /* LXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B69491A01DAB59E400BDD440 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B69491A21DAB59E400BDD440 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		B69491A31DAB59E400BDD440 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		B69491A51DAB59E400BDD440 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		B69491A61DAB59E400BDD440 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		B69491A91DAB59E400BDD440 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B69491AB1DAB59E400BDD440 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		B69491AE1DAB59E400BDD440 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B69491B01DAB59E400BDD440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BA5E224ED36B2BFE02B4C1E4 /* Pods-LXY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LXY.release.xcconfig"; path = "Pods/Target Support Files/Pods-LXY/Pods-LXY.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,17 +46,29 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				85514C2E6ABA3C5A737258F8 /* libPods-LXY.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9838200B49BF34C0CE2A995C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				7FBC5354CEEF3E704C4C0FC9 /* libPods-LXY.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		B69491931DAB59E300BDD440 = {
 			isa = PBXGroup;
 			children = (
 				B694919E1DAB59E400BDD440 /* LXY */,
 				B694919D1DAB59E300BDD440 /* Products */,
+				B63360891DB2717700F5F951 /* Icons */,
+				D5FB9978ED1E4DA091D1E4BA /* Pods */,
+				9838200B49BF34C0CE2A995C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -60,12 +85,13 @@
 			children = (
 				B69491A21DAB59E400BDD440 /* AppDelegate.h */,
 				B69491A31DAB59E400BDD440 /* AppDelegate.m */,
-				B69491A51DAB59E400BDD440 /* ViewController.h */,
-				B69491A61DAB59E400BDD440 /* ViewController.m */,
-				B69491A81DAB59E400BDD440 /* Main.storyboard */,
-				B69491AB1DAB59E400BDD440 /* Assets.xcassets */,
-				B69491AD1DAB59E400BDD440 /* LaunchScreen.storyboard */,
-				B69491B01DAB59E400BDD440 /* Info.plist */,
+				B686B3DF1DB3185700C1E965 /* First.h */,
+				B686B3E01DB3185700C1E965 /* First.m */,
+				B686B3EF1DB34CDB00C1E965 /* View.xib */,
+				B686B3F11DB34D0F00C1E965 /* BarView.h */,
+				B686B3F21DB34D0F00C1E965 /* BarView.m */,
+				B686B3EC1DB3479000C1E965 /* MyNavigation.h */,
+				B686B3ED1DB3479000C1E965 /* MyNavigation.m */,
 				B694919F1DAB59E400BDD440 /* Supporting Files */,
 			);
 			path = LXY;
@@ -74,9 +100,22 @@
 		B694919F1DAB59E400BDD440 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				B69491AB1DAB59E400BDD440 /* Assets.xcassets */,
+				B69491B01DAB59E400BDD440 /* Info.plist */,
 				B69491A01DAB59E400BDD440 /* main.m */,
+				B686B3E21DB3258300C1E965 /* UIImage+AddImage.h */,
+				B686B3E31DB3258300C1E965 /* UIImage+AddImage.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D5FB9978ED1E4DA091D1E4BA /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				93A959B3AEDEBF558C472E3A /* Pods-LXY.debug.xcconfig */,
+				BA5E224ED36B2BFE02B4C1E4 /* Pods-LXY.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -86,9 +125,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B69491B31DAB59E400BDD440 /* Build configuration list for PBXNativeTarget "LXY" */;
 			buildPhases = (
+				A00ECF8DE3D838946894334A /* [CP] Check Pods Manifest.lock */,
 				B69491981DAB59E300BDD440 /* Sources */,
 				B69491991DAB59E300BDD440 /* Frameworks */,
 				B694919A1DAB59E300BDD440 /* Resources */,
+				FE57D52054B7D45301828A0E /* [CP] Embed Pods Frameworks */,
+				0497B259962E7F85825BE74D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,45 +178,77 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B69491AF1DAB59E400BDD440 /* LaunchScreen.storyboard in Resources */,
 				B69491AC1DAB59E400BDD440 /* Assets.xcassets in Resources */,
-				B69491AA1DAB59E400BDD440 /* Main.storyboard in Resources */,
+				B686B3F01DB34CDB00C1E965 /* View.xib in Resources */,
+				B633608A1DB2717700F5F951 /* Icons in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0497B259962E7F85825BE74D /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LXY/Pods-LXY-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A00ECF8DE3D838946894334A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FE57D52054B7D45301828A0E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-LXY/Pods-LXY-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		B69491981DAB59E300BDD440 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B69491A71DAB59E400BDD440 /* ViewController.m in Sources */,
+				B686B3EE1DB3479000C1E965 /* MyNavigation.m in Sources */,
+				B686B3E11DB3185700C1E965 /* First.m in Sources */,
+				B686B3E41DB3258300C1E965 /* UIImage+AddImage.m in Sources */,
 				B69491A41DAB59E400BDD440 /* AppDelegate.m in Sources */,
+				B686B3F31DB34D0F00C1E965 /* BarView.m in Sources */,
 				B69491A11DAB59E400BDD440 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		B69491A81DAB59E400BDD440 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B69491A91DAB59E400BDD440 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		B69491AD1DAB59E400BDD440 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				B69491AE1DAB59E400BDD440 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		B69491B11DAB59E400BDD440 /* Debug */ = {
@@ -263,8 +337,10 @@
 		};
 		B69491B41DAB59E400BDD440 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 93A959B3AEDEBF558C472E3A /* Pods-LXY.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = LXY/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lxy.LXY;
@@ -274,8 +350,10 @@
 		};
 		B69491B51DAB59E400BDD440 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BA5E224ED36B2BFE02B4C1E4 /* Pods-LXY.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = LXY/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lxy.LXY;
@@ -302,6 +380,7 @@
 				B69491B51DAB59E400BDD440 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

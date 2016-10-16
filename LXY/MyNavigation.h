@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  MyNavigation.h
 //  LXY
 //
-//  Created by Xinyu Liang on 16/10/10.
+//  Created by Xinyu Liang on 16/10/16.
 //  Copyright © 2016年 Xinyu Liang. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface MyNavigation : UINavigationController
 
 @end
-
