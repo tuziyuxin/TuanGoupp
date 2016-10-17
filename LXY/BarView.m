@@ -7,12 +7,34 @@
 //
 
 #import "BarView.h"
+#import "PopViewController.h"
+
+
+@interface BarView ()
+
+@property (weak, nonatomic) IBOutlet UIButton * button;
+
+@end
 
 @implementation BarView
+- (IBAction)button:(UIButton *)sender {
+    
+}
 
 +(instancetype)createItem
 {
-    return [[[NSBundle mainBundle] loadNibNamed:@"View" owner:self options:nil] lastObject];
+    return [[[NSBundle mainBundle] loadNibNamed:@"BarView" owner:self options:nil] lastObject];
 }
 
+//这种方法可以为button添加target和action
+-(void)addTarget:(id)target action:(SEL)sel
+{
+    [self.button addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
+
+}
+
+
+-(void)print{
+    NSLog(@"this is print");
+}
 @end

@@ -9,12 +9,19 @@
 #import "First.h"
 #import "UIImage+AddImage.h"
 #import "BarView.h"
+#import "PopViewController.h"
 
 @interface First ()
 
 @end
 
 @implementation First
+{
+    UIBarButtonItem* firstItem;
+    UIBarButtonItem* secondItem;
+    UIBarButtonItem* thirdItem;
+    UIPopoverController* popVC;
+}
 
 static NSString * const reuseIdentifier = @"Cell";
 -(instancetype)init
@@ -46,15 +53,54 @@ static NSString * const reuseIdentifier = @"Cell";
     UIBarButtonItem * imageItem=[[UIBarButtonItem alloc] initWithImage:image style:UIBarButtonItemStyleDone target:nil action:nil];
     
     //后面的三个一样的BarButtonItem
-    UIBarButtonItem* firstItem=[[UIBarButtonItem alloc] initWithCustomView:[BarView createItem]];
-    UIBarButtonItem* secondeItem=[[UIBarButtonItem alloc] initWithCustomView:[BarView createItem]];
-    UIBarButtonItem* thirdItem=[[UIBarButtonItem alloc] initWithCustomView:[BarView createItem]];
     
-    self.navigationItem.leftBarButtonItems=@[imageItem,firstItem,secondeItem,thirdItem];
+    BarView * barView1=[BarView createItem];
+    [barView1 addTarget:self action:@selector(firstCreatePopoverViewController)];
+    BarView * barView2=[BarView createItem];
+    [barView2 addTarget:self action:@selector(secondCreatePopoverViewController)];
+    BarView * barView3=[BarView createItem];
+    [barView3 addTarget:self action:@selector(thirdCreatePopoverViewController)];
     
+    firstItem=[[UIBarButtonItem alloc] initWithCustomView:barView1];
+    secondItem=[[UIBarButtonItem alloc] initWithCustomView:barView2];
+    thirdItem=[[UIBarButtonItem alloc] initWithCustomView:barView3];
     
-    
+    self.navigationItem.leftBarButtonItems=@[imageItem,firstItem,secondItem,thirdItem];
 }
+
+
+
+-(void)firstCreatePopoverViewController
+{
+    [self createPopoverVCWithBarButtonItem:firstItem];
+}
+
+-(void)secondCreatePopoverViewController
+{
+    [self createPopoverVCWithBarButtonItem:secondItem];
+}
+
+-(void)thirdCreatePopoverViewController
+{
+    [self createPopoverVCWithBarButtonItem:thirdItem];
+}
+
+-(void)createPopoverVCWithBarButtonItem:(UIBarButtonItem *)barButton
+{
+    if (popVC) {
+        [popVC dismissPopoverAnimated:YES];
+         popVC=nil;
+    }
+    PopViewController* popContent=[[PopViewController alloc] init];
+    
+    UIPopoverController* popVC=[[UIPopoverController alloc] initWithContentViewController:popContent];
+    [popVC presentPopoverFromBarButtonItem:barButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+    //[popVC presentPopoverFromBarButtonItem:firstItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+}
+
+
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

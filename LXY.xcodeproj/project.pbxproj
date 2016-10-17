@@ -12,8 +12,11 @@
 		B686B3E11DB3185700C1E965 /* First.m in Sources */ = {isa = PBXBuildFile; fileRef = B686B3E01DB3185700C1E965 /* First.m */; };
 		B686B3E41DB3258300C1E965 /* UIImage+AddImage.m in Sources */ = {isa = PBXBuildFile; fileRef = B686B3E31DB3258300C1E965 /* UIImage+AddImage.m */; };
 		B686B3EE1DB3479000C1E965 /* MyNavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = B686B3ED1DB3479000C1E965 /* MyNavigation.m */; };
-		B686B3F01DB34CDB00C1E965 /* View.xib in Resources */ = {isa = PBXBuildFile; fileRef = B686B3EF1DB34CDB00C1E965 /* View.xib */; };
+		B686B3F01DB34CDB00C1E965 /* BarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B686B3EF1DB34CDB00C1E965 /* BarView.xib */; };
 		B686B3F31DB34D0F00C1E965 /* BarView.m in Sources */ = {isa = PBXBuildFile; fileRef = B686B3F21DB34D0F00C1E965 /* BarView.m */; };
+		B686B3F91DB3696900C1E965 /* PopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B686B3F81DB3696900C1E965 /* PopViewController.m */; };
+		B686B3FE1DB36F5A00C1E965 /* PopView.m in Sources */ = {isa = PBXBuildFile; fileRef = B686B3FD1DB36F5A00C1E965 /* PopView.m */; };
+		B686B4041DB389BB00C1E965 /* PopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B686B4031DB389BB00C1E965 /* PopView.xib */; };
 		B69491A11DAB59E400BDD440 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B69491A01DAB59E400BDD440 /* main.m */; };
 		B69491A41DAB59E400BDD440 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B69491A31DAB59E400BDD440 /* AppDelegate.m */; };
 		B69491AC1DAB59E400BDD440 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B69491AB1DAB59E400BDD440 /* Assets.xcassets */; };
@@ -29,9 +32,14 @@
 		B686B3E31DB3258300C1E965 /* UIImage+AddImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AddImage.m"; sourceTree = "<group>"; };
 		B686B3EC1DB3479000C1E965 /* MyNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyNavigation.h; sourceTree = "<group>"; };
 		B686B3ED1DB3479000C1E965 /* MyNavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyNavigation.m; sourceTree = "<group>"; };
-		B686B3EF1DB34CDB00C1E965 /* View.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View.xib; sourceTree = "<group>"; };
+		B686B3EF1DB34CDB00C1E965 /* BarView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BarView.xib; sourceTree = "<group>"; };
 		B686B3F11DB34D0F00C1E965 /* BarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BarView.h; sourceTree = "<group>"; };
 		B686B3F21DB34D0F00C1E965 /* BarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BarView.m; sourceTree = "<group>"; };
+		B686B3F71DB3696900C1E965 /* PopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopViewController.h; sourceTree = "<group>"; };
+		B686B3F81DB3696900C1E965 /* PopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopViewController.m; sourceTree = "<group>"; };
+		B686B3FC1DB36F5A00C1E965 /* PopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PopView.h; sourceTree = "<group>"; };
+		B686B3FD1DB36F5A00C1E965 /* PopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PopView.m; sourceTree = "<group>"; };
+		B686B4031DB389BB00C1E965 /* PopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopView.xib; sourceTree = "<group>"; };
 		B694919C1DAB59E300BDD440 /* LXY.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LXY.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B69491A01DAB59E400BDD440 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		B69491A21DAB59E400BDD440 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -61,6 +69,39 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		B686B3F41DB3686600C1E965 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		B686B3F51DB3687100C1E965 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				B686B3F11DB34D0F00C1E965 /* BarView.h */,
+				B686B3F21DB34D0F00C1E965 /* BarView.m */,
+				B686B3EF1DB34CDB00C1E965 /* BarView.xib */,
+				B686B3FC1DB36F5A00C1E965 /* PopView.h */,
+				B686B3FD1DB36F5A00C1E965 /* PopView.m */,
+				B686B4031DB389BB00C1E965 /* PopView.xib */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		B686B3F61DB3687900C1E965 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				B686B3DF1DB3185700C1E965 /* First.h */,
+				B686B3E01DB3185700C1E965 /* First.m */,
+				B686B3EC1DB3479000C1E965 /* MyNavigation.h */,
+				B686B3ED1DB3479000C1E965 /* MyNavigation.m */,
+				B686B3F71DB3696900C1E965 /* PopViewController.h */,
+				B686B3F81DB3696900C1E965 /* PopViewController.m */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
 		B69491931DAB59E300BDD440 = {
 			isa = PBXGroup;
 			children = (
@@ -85,13 +126,9 @@
 			children = (
 				B69491A21DAB59E400BDD440 /* AppDelegate.h */,
 				B69491A31DAB59E400BDD440 /* AppDelegate.m */,
-				B686B3DF1DB3185700C1E965 /* First.h */,
-				B686B3E01DB3185700C1E965 /* First.m */,
-				B686B3EF1DB34CDB00C1E965 /* View.xib */,
-				B686B3F11DB34D0F00C1E965 /* BarView.h */,
-				B686B3F21DB34D0F00C1E965 /* BarView.m */,
-				B686B3EC1DB3479000C1E965 /* MyNavigation.h */,
-				B686B3ED1DB3479000C1E965 /* MyNavigation.m */,
+				B686B3F61DB3687900C1E965 /* Controller */,
+				B686B3F51DB3687100C1E965 /* View */,
+				B686B3F41DB3686600C1E965 /* Model */,
 				B694919F1DAB59E400BDD440 /* Supporting Files */,
 			);
 			path = LXY;
@@ -179,7 +216,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B69491AC1DAB59E400BDD440 /* Assets.xcassets in Resources */,
-				B686B3F01DB34CDB00C1E965 /* View.xib in Resources */,
+				B686B3F01DB34CDB00C1E965 /* BarView.xib in Resources */,
+				B686B4041DB389BB00C1E965 /* PopView.xib in Resources */,
 				B633608A1DB2717700F5F951 /* Icons in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,7 +281,9 @@
 				B686B3E11DB3185700C1E965 /* First.m in Sources */,
 				B686B3E41DB3258300C1E965 /* UIImage+AddImage.m in Sources */,
 				B69491A41DAB59E400BDD440 /* AppDelegate.m in Sources */,
+				B686B3F91DB3696900C1E965 /* PopViewController.m in Sources */,
 				B686B3F31DB34D0F00C1E965 /* BarView.m in Sources */,
+				B686B3FE1DB36F5A00C1E965 /* PopView.m in Sources */,
 				B69491A11DAB59E400BDD440 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -342,6 +382,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = LXY/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lxy.LXY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -355,6 +396,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = LXY/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lxy.LXY;
 				PRODUCT_NAME = "$(TARGET_NAME)";

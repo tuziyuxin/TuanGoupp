@@ -1,5 +1,5 @@
 //
-//  BarView.h
+//  PopView.h
 //  LXY
 //
 //  Created by Xinyu Liang on 16/10/16.
@@ -8,9 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface BarView : UIView
+@interface PopView : UIView
 
-+(instancetype)createItem;
++(instancetype)creatPopView;
 
--(void)addTarget:(id)target action:(SEL)sel;
 @end
