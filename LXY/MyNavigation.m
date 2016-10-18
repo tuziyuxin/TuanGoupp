@@ -15,25 +15,19 @@
 @implementation MyNavigation
 
 - (void)viewDidLoad {
+    
+//在ViewController中进行所有的bar的先行改造
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+//获取UINavigationBar的新方法
     UINavigationBar * bar=[UINavigationBar appearance];
+//设置背景图片，虽然背景图片size和bar的size不太一样
     [bar setBackgroundImage:[UIImage imageNamed:@"bg_navigationBar_normal"] forBarMetrics:UIBarMetricsDefault];
 }
 
 - (void)didReceiveMemoryWarning {
+    
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

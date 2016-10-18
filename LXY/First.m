@@ -10,6 +10,7 @@
 #import "UIImage+AddImage.h"
 #import "BarView.h"
 #import "PopViewController.h"
+#import "SecondViewController.h"
 
 @interface First ()
 
@@ -26,7 +27,7 @@
 static NSString * const reuseIdentifier = @"Cell";
 -(instancetype)init
 {
-    UICollectionViewLayout* layout=[[UICollectionViewLayout alloc] init];
+    UICollectionViewLayout* layout=[[UICollectionViewLayout alloc] init];//UICollectionView的layout得是UICollection
     return [self initWithCollectionViewLayout:layout];
 }
 
@@ -91,11 +92,18 @@ static NSString * const reuseIdentifier = @"Cell";
         [popVC dismissPopoverAnimated:YES];
          popVC=nil;
     }
-    PopViewController* popContent=[[PopViewController alloc] init];
-    
-    UIPopoverController* popVC=[[UIPopoverController alloc] initWithContentViewController:popContent];
+    UIViewController* popContent;
+    if(barButton==firstItem)
+    {
+        popContent=[[PopViewController alloc] init];
+
+    }else
+    {
+        popContent=[[SecondViewController alloc] initWithNibName:@"SecondViewController" bundle:nil];
+    }
+        
+    popVC=[[UIPopoverController alloc] initWithContentViewController:popContent];
     [popVC presentPopoverFromBarButtonItem:barButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-    //[popVC presentPopoverFromBarButtonItem:firstItem permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
 }
 
 

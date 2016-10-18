@@ -17,9 +17,6 @@
 @end
 
 @implementation BarView
-- (IBAction)button:(UIButton *)sender {
-    
-}
 
 +(instancetype)createItem
 {
@@ -31,10 +28,5 @@
 {
     [self.button addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
 
-}
-
-
--(void)print{
-    NSLog(@"this is print");
 }
 @end

@@ -20,6 +20,17 @@
 		B69491A11DAB59E400BDD440 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B69491A01DAB59E400BDD440 /* main.m */; };
 		B69491A41DAB59E400BDD440 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B69491A31DAB59E400BDD440 /* AppDelegate.m */; };
 		B69491AC1DAB59E400BDD440 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B69491AB1DAB59E400BDD440 /* Assets.xcassets */; };
+		B6D492B71DB46E3A00A97FD3 /* categories.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6D492B31DB46E3A00A97FD3 /* categories.plist */; };
+		B6D492B81DB46E3A00A97FD3 /* cities.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6D492B41DB46E3A00A97FD3 /* cities.plist */; };
+		B6D492B91DB46E3A00A97FD3 /* cityGroups.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6D492B51DB46E3A00A97FD3 /* cityGroups.plist */; };
+		B6D492BA1DB46E3A00A97FD3 /* sorts.plist in Resources */ = {isa = PBXBuildFile; fileRef = B6D492B61DB46E3A00A97FD3 /* sorts.plist */; };
+		B6D492BD1DB470ED00A97FD3 /* CategoryModel.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D492BC1DB470ED00A97FD3 /* CategoryModel.m */; };
+		B6D492CB1DB4CFFC00A97FD3 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D492C91DB4CFFC00A97FD3 /* SecondViewController.m */; };
+		B6D492CC1DB4CFFC00A97FD3 /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6D492CA1DB4CFFC00A97FD3 /* SecondViewController.xib */; };
+		B6D492D21DB4D8C400A97FD3 /* ChangCityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D492D11DB4D8C400A97FD3 /* ChangCityViewController.m */; };
+		B6D492D41DB4D8E400A97FD3 /* ChangCityView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B6D492D31DB4D8E400A97FD3 /* ChangCityView.xib */; };
+		B6D492D71DB4D90200A97FD3 /* ChangCityView.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D492D61DB4D90200A97FD3 /* ChangCityView.m */; };
+		B6D492DA1DB4EA2700A97FD3 /* CityGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = B6D492D91DB4EA2700A97FD3 /* CityGroup.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +57,22 @@
 		B69491A31DAB59E400BDD440 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		B69491AB1DAB59E400BDD440 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B69491B01DAB59E400BDD440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B6D492B31DB46E3A00A97FD3 /* categories.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = categories.plist; path = PlistData/categories.plist; sourceTree = "<group>"; };
+		B6D492B41DB46E3A00A97FD3 /* cities.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = cities.plist; path = PlistData/cities.plist; sourceTree = "<group>"; };
+		B6D492B51DB46E3A00A97FD3 /* cityGroups.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = cityGroups.plist; path = PlistData/cityGroups.plist; sourceTree = "<group>"; };
+		B6D492B61DB46E3A00A97FD3 /* sorts.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = sorts.plist; path = PlistData/sorts.plist; sourceTree = "<group>"; };
+		B6D492BB1DB470ED00A97FD3 /* CategoryModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryModel.h; sourceTree = "<group>"; };
+		B6D492BC1DB470ED00A97FD3 /* CategoryModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryModel.m; sourceTree = "<group>"; };
+		B6D492C81DB4CFFC00A97FD3 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		B6D492C91DB4CFFC00A97FD3 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
+		B6D492CA1DB4CFFC00A97FD3 /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
+		B6D492D01DB4D8C400A97FD3 /* ChangCityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangCityViewController.h; sourceTree = "<group>"; };
+		B6D492D11DB4D8C400A97FD3 /* ChangCityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangCityViewController.m; sourceTree = "<group>"; };
+		B6D492D31DB4D8E400A97FD3 /* ChangCityView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChangCityView.xib; sourceTree = "<group>"; };
+		B6D492D51DB4D90200A97FD3 /* ChangCityView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChangCityView.h; sourceTree = "<group>"; };
+		B6D492D61DB4D90200A97FD3 /* ChangCityView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChangCityView.m; sourceTree = "<group>"; };
+		B6D492D81DB4EA2700A97FD3 /* CityGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityGroup.h; sourceTree = "<group>"; };
+		B6D492D91DB4EA2700A97FD3 /* CityGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityGroup.m; sourceTree = "<group>"; };
 		BA5E224ED36B2BFE02B4C1E4 /* Pods-LXY.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LXY.release.xcconfig"; path = "Pods/Target Support Files/Pods-LXY/Pods-LXY.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -72,6 +99,11 @@
 		B686B3F41DB3686600C1E965 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B6D492BB1DB470ED00A97FD3 /* CategoryModel.h */,
+				B6D492BC1DB470ED00A97FD3 /* CategoryModel.m */,
+				B6D492D81DB4EA2700A97FD3 /* CityGroup.h */,
+				B6D492D91DB4EA2700A97FD3 /* CityGroup.m */,
+				B6D492B21DB46E2D00A97FD3 /* PlistData */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -85,6 +117,9 @@
 				B686B3FC1DB36F5A00C1E965 /* PopView.h */,
 				B686B3FD1DB36F5A00C1E965 /* PopView.m */,
 				B686B4031DB389BB00C1E965 /* PopView.xib */,
+				B6D492D51DB4D90200A97FD3 /* ChangCityView.h */,
+				B6D492D61DB4D90200A97FD3 /* ChangCityView.m */,
+				B6D492D31DB4D8E400A97FD3 /* ChangCityView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -98,6 +133,11 @@
 				B686B3ED1DB3479000C1E965 /* MyNavigation.m */,
 				B686B3F71DB3696900C1E965 /* PopViewController.h */,
 				B686B3F81DB3696900C1E965 /* PopViewController.m */,
+				B6D492C81DB4CFFC00A97FD3 /* SecondViewController.h */,
+				B6D492C91DB4CFFC00A97FD3 /* SecondViewController.m */,
+				B6D492CA1DB4CFFC00A97FD3 /* SecondViewController.xib */,
+				B6D492D01DB4D8C400A97FD3 /* ChangCityViewController.h */,
+				B6D492D11DB4D8C400A97FD3 /* ChangCityViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -144,6 +184,17 @@
 				B686B3E31DB3258300C1E965 /* UIImage+AddImage.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B6D492B21DB46E2D00A97FD3 /* PlistData */ = {
+			isa = PBXGroup;
+			children = (
+				B6D492B31DB46E3A00A97FD3 /* categories.plist */,
+				B6D492B41DB46E3A00A97FD3 /* cities.plist */,
+				B6D492B51DB46E3A00A97FD3 /* cityGroups.plist */,
+				B6D492B61DB46E3A00A97FD3 /* sorts.plist */,
+			);
+			name = PlistData;
 			sourceTree = "<group>";
 		};
 		D5FB9978ED1E4DA091D1E4BA /* Pods */ = {
@@ -215,8 +266,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B6D492B81DB46E3A00A97FD3 /* cities.plist in Resources */,
 				B69491AC1DAB59E400BDD440 /* Assets.xcassets in Resources */,
+				B6D492B91DB46E3A00A97FD3 /* cityGroups.plist in Resources */,
+				B6D492CC1DB4CFFC00A97FD3 /* SecondViewController.xib in Resources */,
+				B6D492B71DB46E3A00A97FD3 /* categories.plist in Resources */,
 				B686B3F01DB34CDB00C1E965 /* BarView.xib in Resources */,
+				B6D492BA1DB46E3A00A97FD3 /* sorts.plist in Resources */,
+				B6D492D41DB4D8E400A97FD3 /* ChangCityView.xib in Resources */,
 				B686B4041DB389BB00C1E965 /* PopView.xib in Resources */,
 				B633608A1DB2717700F5F951 /* Icons in Resources */,
 			);
@@ -279,12 +336,17 @@
 			files = (
 				B686B3EE1DB3479000C1E965 /* MyNavigation.m in Sources */,
 				B686B3E11DB3185700C1E965 /* First.m in Sources */,
+				B6D492DA1DB4EA2700A97FD3 /* CityGroup.m in Sources */,
 				B686B3E41DB3258300C1E965 /* UIImage+AddImage.m in Sources */,
+				B6D492D21DB4D8C400A97FD3 /* ChangCityViewController.m in Sources */,
 				B69491A41DAB59E400BDD440 /* AppDelegate.m in Sources */,
+				B6D492BD1DB470ED00A97FD3 /* CategoryModel.m in Sources */,
 				B686B3F91DB3696900C1E965 /* PopViewController.m in Sources */,
 				B686B3F31DB34D0F00C1E965 /* BarView.m in Sources */,
+				B6D492CB1DB4CFFC00A97FD3 /* SecondViewController.m in Sources */,
 				B686B3FE1DB36F5A00C1E965 /* PopView.m in Sources */,
 				B69491A11DAB59E400BDD440 /* main.m in Sources */,
+				B6D492D71DB4D90200A97FD3 /* ChangCityView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,10 +444,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = LXY/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lxy.LXY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = "-Wno-deprecated-declarations";
 			};
 			name = Debug;
 		};
@@ -396,10 +459,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				INFOPLIST_FILE = LXY/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = lxy.LXY;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = "-Wno-deprecated-declarations";
 			};
 			name = Release;
 		};
