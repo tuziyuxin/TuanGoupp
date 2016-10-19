@@ -7,20 +7,27 @@
 //
 
 #import "ChangCityView.h"
-#import "CityGroup.h"
+
+#import "SearchTableView.h"
+#import "Constant.h"
 @interface ChangCityView()
 
 @property (weak, nonatomic) IBOutlet UIView *coverView;
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet SearchTableView *tableView;
 
 @end
+
 @implementation ChangCityView
+
+//初始化进行view的create
 
 +(instancetype)createView
 {
     return [[[NSBundle mainBundle] loadNibNamed:@"ChangCityView" owner:nil options:nil] firstObject];
 }
+
+
 
 -(void)setSearchBar:(UISearchBar *)searchBar
 {
@@ -33,23 +40,25 @@
     self.searchBar.showsCancelButton=YES;
     self.coverView.hidden=NO;
     self.coverViewHidden=YES;
+    
 }
 
 -(void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
     self.searchBar.text=nil;
-    self.coverView.hidden=YES;
     self.searchBar.showsCancelButton=NO;
     [self.searchBar resignFirstResponder];
+    
     self.coverViewHidden=NO;
-    if (self.coverViewHidden) {
-        
-    }
+    self.coverView.hidden=YES;
+    self.tableView.hidden=YES;
 }
 -(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
 {
     
     if ([searchText length]) {
+        searchText=[searchText lowercaseString];
+        self.tableView.string=searchText;
         self.tableView.hidden=NO;
     }else
     {
@@ -90,7 +99,11 @@
     return cell;
 }
 
-
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:City_Change_Notifaction object:nil userInfo:@{city_name:[self.totalArray[indexPath.section] cities][indexPath.row]}];
+}
 
 -(void)dealloc
 {

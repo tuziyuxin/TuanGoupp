@@ -34,25 +34,12 @@
     [self.view addSubview:_cityView];
     
     self.preferredContentSize=CGSizeMake(_cityView.frame.size.width, _cityView.frame.size.height);
-
-}
-#pragma mark -UISearchBarDelegate
-
--(void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar
-{
     
-}
 
--(void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
-{
-    
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 
+//监视来控制coverview是否被覆盖， 即view中有东西反馈到controller
 
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
 {
@@ -62,7 +49,7 @@
         [self.navigationController setNavigationBarHidden:YES animated:YES];
     }else
     {
-        [self.navigationController setNavigationBarHidden:NO animated:NO];
+        [self.navigationController setNavigationBarHidden:NO animated:YES];
     }
  }
 

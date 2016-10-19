@@ -7,15 +7,18 @@
 //
 
 #import "PopView.h"
-#import "CategoryModel.h"
+
+
 @interface PopView()<UITableViewDelegate,UITableViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UITableView *leftTV;
 @property (weak, nonatomic) IBOutlet UITableView *rightTV;
 
 @end
 @implementation PopView
 {
-    CategoryModel* _selectedModel;
+    NSInteger _selectedIndex;
+    NSArray* _subArray;//subArray可能是空
 }
 
 +(instancetype)creatPopView
@@ -30,19 +33,14 @@
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView==_leftTV) {
-        return [_totalArray count];
+        return [self.dataSource numberOfRowsInLeftTableViewOfView:self];
     }else
     {
-        return [_selectedModel.subClass count];
-        //return [_totalArray count];
+        return [_subArray count];
     }
 }
 
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-    
-}
+
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView==_leftTV) {
@@ -51,10 +49,10 @@
         if (!cell) {
             cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:leftCellName];
         }
-        CategoryModel* modelForCell=_totalArray[indexPath.row];
-        cell.textLabel.text=modelForCell.name;
-        cell.imageView.image=[UIImage imageNamed:modelForCell.smallIcon];
-        if (modelForCell.subClass) {
+        cell.textLabel.text=[self.dataSource titleForRowAtLeft:indexPath.row View:self];
+        cell.imageView.image=[UIImage imageNamed:[self.dataSource pathForImageAtLeft:indexPath.row View:self]];
+        
+        if ([self.dataSource subDataOfRightViewAtIndex:indexPath.row View:self]) {
             cell.accessoryType=UITableViewCellAccessoryDisclosureIndicator;
         }else
         {
@@ -68,9 +66,8 @@
         if (!cell) {
             cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:rightCellName];
         }
-        if (_selectedModel.subClass) {
-            NSArray* array=_selectedModel.subClass;
-            cell.textLabel.text=array[indexPath.row];
+        if (_subArray) {
+            cell.textLabel.text=[self.dataSource titleForRowAtRight:indexPath.row WithLeft:_selectedIndex View:self];
         }
         return cell;
     }
@@ -81,7 +78,10 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (tableView==_leftTV) {
-        _selectedModel=_totalArray[indexPath.row];//当其判断为需要重新载入时，需要reloadData
+        
+        _selectedIndex=indexPath.row;
+        _subArray=[self.dataSource subDataOfRightViewAtIndex:indexPath.row View:self];
+        
         [self.rightTV reloadData];
     }
 }

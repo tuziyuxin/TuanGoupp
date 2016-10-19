@@ -29,4 +29,11 @@
     [self.button addTarget:target action:sel forControlEvents:UIControlEventTouchUpInside];
 
 }
+
+
+#warning Xcode的原因
+-(void)button:(id)obj
+{
+    
+}
 @end

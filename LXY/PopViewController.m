@@ -9,8 +9,16 @@
 #import "PopViewController.h"
 #import "PopView.h"
 #import "CategoryModel.h"
+@interface PopViewController() <MyPopViewDataSource>
+
+@end
 
 @implementation PopViewController
+{
+    NSArray <CategoryModel*> * _totalArray;
+    NSArray* _selectedArray;
+    NSInteger _selectedIndex;
+}
 
 -(void)loadView
 {
@@ -21,24 +29,71 @@
 {
    [super viewDidLoad];
     
-//设置view
+    
     PopView* view=[PopView creatPopView];
+    view.dataSource=self;
     
 #warning I do not know why this has a relationship with tableview IN view
     view.autoresizingMask=UIViewAutoresizingNone;
     
     [self.view addSubview:view];
-    
-//将controller的尺寸设置为view的尺寸
     self.preferredContentSize=CGSizeMake(view.frame.size.width, view.frame.size.height);
     
-//初始化模型
     CategoryModel* model=[[CategoryModel alloc] init];
-    NSArray* array=[model loadPlist];
-    
-//将view的数据设置好
-    view.totalArray=array;
-    
-    
+    _totalArray=[model loadPlist];//进行赋值
 }
+
+#pragma  mark - DataSource Delegate
+
+-(NSInteger)numberOfRowsInLeftTableViewOfView:(PopView *)view
+{
+    return [_totalArray count];
+}
+
+
+-(NSArray *)subDataOfRightViewAtIndex:(NSInteger)index View:(PopView *)view
+{
+    NSArray* subArray=nil;
+    if (_totalArray) {
+        subArray=[_totalArray[index] subClass];
+    }
+    return subArray;
+}
+
+-(NSString*)titleForRowAtLeft:(NSInteger)index View:(PopView *)view
+{
+    NSString* leftTitle=nil;
+    if (_totalArray) {
+        leftTitle=[_totalArray[index] name];
+    }
+    return leftTitle;
+}
+
+-(NSString*)titleForRowAtRight:(NSInteger)index WithLeft:(NSInteger)selectedIndex View:(PopView *)view
+{
+    if ((selectedIndex!=_selectedIndex)||(!_selectedArray)) {
+        _selectedArray=[_totalArray[selectedIndex] subClass];
+    }
+    return _selectedArray[index];
+}
+
+-(NSString*)pathForImageAtLeft:(NSInteger)index View:(PopView *)view
+{
+    NSString* imagePath=nil;
+    if (_totalArray) {
+        imagePath=[_totalArray[index] icon];
+    }
+    return imagePath;
+}
+
+
+
+
+
+
+
+
+
+
+
 @end

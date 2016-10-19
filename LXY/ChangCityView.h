@@ -7,10 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CityGroup.h"
 
 @interface ChangCityView : UIView<UITableViewDelegate,UITableViewDataSource,UISearchBarDelegate>
 
-@property(nonatomic,strong)NSArray* totalArray;
+@property(nonatomic,strong)NSArray<CityGroup*>* totalArray;
 @property(nonatomic)BOOL coverViewHidden;
 
 +(instancetype)createView;

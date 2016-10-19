@@ -9,6 +9,7 @@
 #import "SecondViewController.h"
 #import "ChangCityViewController.h"
 #import "MyNavigation.h"
+#import "Constant.h"
 
 @interface SecondViewController ()
 
@@ -18,13 +19,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cityChanged:) name:City_Change_Notifaction object:nil];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
 
-//切换城市的按钮点击时
+//切换城市的按钮点击时,对ChangeCityViewController进行present
 - (IBAction)changCityClick:(UIButton *)sender {
     ChangCityViewController* cityController=[[ChangCityViewController alloc] init];
     cityController.title=@"切换城市";
@@ -42,6 +44,15 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+-(void)cityChanged:(NSNotification *)noti
+{
+NSLog(@"secondViewController %@",noti.userInfo[city_name]);
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:City_Change_Notifaction object:nil];
+}
 
 @end

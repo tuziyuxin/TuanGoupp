@@ -104,6 +104,8 @@ static NSString * const reuseIdentifier = @"Cell";
         
     popVC=[[UIPopoverController alloc] initWithContentViewController:popContent];
     [popVC presentPopoverFromBarButtonItem:barButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
+//可以在此监听
+    
 }
 
 
