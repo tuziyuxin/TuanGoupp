@@ -9,6 +9,7 @@
 #import "ChangCityViewController.h"
 #import "ChangCityView.h"
 #import "CityGroup.h"
+#import "UIView+AutoLayout.h"
 
 @interface ChangCityViewController ()
 
@@ -30,12 +31,16 @@
     _cityView=[ChangCityView createView];
     _cityView.totalArray=[[CityGroup alloc] loadCityGroup];
     _cityView.autoresizingMask=UIViewAutoresizingNone;
+    
+  
+    
     [_cityView addObserver:self forKeyPath:@"coverViewHidden" options:NSKeyValueObservingOptionNew context:nil];
     [self.view addSubview:_cityView];
-    
+  //  self.view=_cityView;//也或者可以直接将self.view=_cityview(局限性)
+#warning 解决问题得靠autolayout，因为无法将cityview与self.view进行匹配
+   // [_cityView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero];
     self.preferredContentSize=CGSizeMake(_cityView.frame.size.width, _cityView.frame.size.height);
     
-
 }
 
 
@@ -47,10 +52,12 @@
 #warning valueForKeyPath: 会包装成对象，而change里面的也是对象：NSNumber
     if ([object coverViewHidden]) {
         [self.navigationController setNavigationBarHidden:YES animated:YES];
+
     }else
     {
         [self.navigationController setNavigationBarHidden:NO animated:YES];
     }
+    CGSizeMake(_cityView.frame.size.width, _cityView.frame.size.height);
  }
 
 

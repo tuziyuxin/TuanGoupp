@@ -1,3 +1,4 @@
+
 //
 //  First.m
 //  LXY
@@ -11,9 +12,16 @@
 #import "BarView.h"
 #import "PopViewController.h"
 #import "SecondViewController.h"
+#import "Constant.h"
+#import "DPAPI.h"
+#import "DownData.h"
+#import "CollectionViewCell.h"
+#import "MJRefresh.h"
+#import "DetailViewController.h"
 
-@interface First ()
 
+@interface First ()<DPRequestDelegate> //实现大众点评的delegate
+@property(nonatomic,assign)NSInteger pageNumber;
 @end
 
 @implementation First
@@ -22,27 +30,65 @@
     UIBarButtonItem* secondItem;
     UIBarButtonItem* thirdItem;
     UIPopoverController* popVC;
+    
+    
+    
+    NSString* _categoryName;
+    NSString* _subCategoryName;
+    NSString* _cityName;
+    NSString* _regionName;
+    
+    NSArray* _totalArray;
 }
 
-static NSString * const reuseIdentifier = @"Cell";
+static NSString * const reuseIdentifier = @"CollectionViewCell";
+
 -(instancetype)init
 {
-    UICollectionViewLayout* layout=[[UICollectionViewLayout alloc] init];//UICollectionView的layout得是UICollection
+    UICollectionViewFlowLayout* layout=[[UICollectionViewFlowLayout alloc] init];//UICollectionView的layout得是UICollection
+    
+    //设置UICollectionViewFlowLayout
+    layout.itemSize=CGSizeMake(300, 300);
+    layout.scrollDirection=UICollectionViewScrollDirectionVertical;
+    
     return [self initWithCollectionViewLayout:layout];
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-#warning collectionView is init and background color is black
+    #warning collectionView is init and background color is black
     self.collectionView.backgroundColor=[UIColor whiteColor];
+    //拒绝调整
+    self.navigationController.navigationBar.autoresizingMask=UIViewAutoresizingNone;
     
+    [self setLayOutWhenLaunched];
+
+    //设置标题bar
     [self createNavBar];
     
+    //添加通知
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(cityChanged:) name:City_Change_Notifaction object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(categoryChanged:) name:Category_Change_Notifaction object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(subCategoryChanged:) name:SubCategory_Change_Notifaction object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(regionChanged:) name:Region_Change_Notifaction object:nil];
     
-    // Register cell classes
-    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
+    //指定collectionviewcell的样式，可以为nib，也可以为cell
+    [self.collectionView registerNib:[UINib nibWithNibName:@"CollectionViewCell" bundle:nil] forCellWithReuseIdentifier:reuseIdentifier];
+     //[self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:reuseIdentifier];
     
-    // Do any additional setup after loading the view.
+    //下拉刷新
+    self.collectionView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [self createRequest];
+        [self.collectionView.header endRefreshing];
+    }];
+    
+    //上拉加载
+    self.collectionView.footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
+        [self loadMoreData];
+        [self.collectionView.footer endRefreshing];
+    }];
+
+    
 }
 
 
@@ -57,16 +103,22 @@ static NSString * const reuseIdentifier = @"Cell";
     
     BarView * barView1=[BarView createItem];
     [barView1 addTarget:self action:@selector(firstCreatePopoverViewController)];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:barView1 selector:@selector(changeSubCategoryName:) name:SubCategory_Change_Notifaction object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:barView1 selector:@selector(changeCategoryName:) name:Category_Change_Notifaction object:nil];
+
+    
     BarView * barView2=[BarView createItem];
     [barView2 addTarget:self action:@selector(secondCreatePopoverViewController)];
-    BarView * barView3=[BarView createItem];
-    [barView3 addTarget:self action:@selector(thirdCreatePopoverViewController)];
+
+    [[NSNotificationCenter defaultCenter] addObserver:barView2 selector:@selector(changeCityName:) name:City_Change_Notifaction object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:barView2 selector:@selector(changeRegionName:) name:Region_Change_Notifaction object:nil];
+    
     
     firstItem=[[UIBarButtonItem alloc] initWithCustomView:barView1];
     secondItem=[[UIBarButtonItem alloc] initWithCustomView:barView2];
-    thirdItem=[[UIBarButtonItem alloc] initWithCustomView:barView3];
     
-    self.navigationItem.leftBarButtonItems=@[imageItem,firstItem,secondItem,thirdItem];
+    self.navigationItem.leftBarButtonItems=@[imageItem,firstItem,secondItem];
 }
 
 
@@ -86,6 +138,8 @@ static NSString * const reuseIdentifier = @"Cell";
     [self createPopoverVCWithBarButtonItem:thirdItem];
 }
 
+
+
 -(void)createPopoverVCWithBarButtonItem:(UIBarButtonItem *)barButton
 {
     if (popVC) {
@@ -104,78 +158,193 @@ static NSString * const reuseIdentifier = @"Cell";
         
     popVC=[[UIPopoverController alloc] initWithContentViewController:popContent];
     [popVC presentPopoverFromBarButtonItem:barButton permittedArrowDirections:UIPopoverArrowDirectionAny animated:YES];
-//可以在此监听
     
 }
 
 
 
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 #pragma mark <UICollectionViewDataSource>
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+
+    return 1;
 }
 
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of items
-    return 0;
+
+    return _totalArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
     
-    // Configure the cell
+    CollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:reuseIdentifier forIndexPath:indexPath];
+    
+    [cell showUI:_totalArray[indexPath.row]];
     
     return cell;
 }
 
+
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+   // DetailViewController* detail=[[DetailViewController alloc] init];
+    DetailViewController* detail=[[DetailViewController alloc] initWithNibName:@"DetailViewController" bundle:nil];
+    detail.md=_totalArray[indexPath.row];
+    [self.navigationController pushViewController:detail animated:YES];
+}
+
+#pragma mark - 调整layout边距
+
+
+-(void)viewWillTransitionToSize:(CGSize)size withTransitionCoordinator:(id<UIViewControllerTransitionCoordinator>)coordinator
+{
+    int number;
+    if(size.width<size.height) {
+        number=2;
+    }else
+    {
+        number=3;
+    }
+    [self setLayOutToDisplayView:number withSize:size];
+}
+
+-(void)setLayOutToDisplayView:(int) number withSize:(CGSize)size
+{
+    int insetNumber=20;
+    UICollectionViewFlowLayout* layout=(UICollectionViewFlowLayout*)self.collectionViewLayout;
+  //  CGFloat insetNumber=(size.width-number*layout.itemSize.width)/(number*2);
+    layout.itemSize=CGSizeMake((size.width-insetNumber*number*2)/number, 300);
+    layout.sectionInset=UIEdgeInsetsMake(20,20,20,20);
+    
+}
+
+-(void)setLayOutWhenLaunched
+{
+    int number;
+    if ([[UIScreen mainScreen] applicationFrame].size.width>[[UIScreen mainScreen] applicationFrame].size.height) {
+        number=3;
+    }else
+    {
+        number=2;
+    }
+    [self setLayOutToDisplayView:number withSize:[[UIScreen mainScreen] applicationFrame].size];
+}
+
+#pragma mark  通知＋网络请求
+-(void)loadMoreData
+{
+    self.pageNumber++;
+    [self createFinalRequest];
+}
+
+-(void)cityChanged:(NSNotification*)noti
+{
+    _cityName=noti.userInfo[city_name];
+}
+-(void)regionChanged:(NSNotification*)noti
+{
+    _regionName=noti.userInfo[region_name];
+    if ([_regionName isEqualToString:@"全部"]) {
+        _regionName=nil;
+    }
+    [popVC dismissPopoverAnimated:NO];
+    [self createRequest];
+
+}
+
+-(void)categoryChanged:(NSNotification*)noti
+{
+    _categoryName=noti.userInfo[category_name];
+    [popVC dismissPopoverAnimated:YES];
+    if ([_categoryName isEqualToString:@"全部分类"]) {
+        _categoryName=nil;
+    }
+    [self createRequest];
+}
+
+-(void)subCategoryChanged:(NSNotification*)noti
+{
+    [popVC dismissPopoverAnimated:YES];
+    NSString* caN=noti.userInfo[category_name];
+    NSString* subN=noti.userInfo[subCategory_name];
+    if ([subN isEqualToString:@"全部"]) {
+        _categoryName=caN;
+    }else
+    {
+        if ([subN containsString:@"/"]) {
+            NSRange range=[subN rangeOfString:@"/"];
+            _categoryName=[subN substringFromIndex:(range.location+range.length)];//当出现了／符号时，应该选其后面那个。
+        }else{
+            _categoryName=subN;
+        }
+        
+    }
+    [self createRequest];
+}
+
+-(void)createRequest
+{
+    self.pageNumber=1;
+    [self createFinalRequest];
+}
+
+-(void)createFinalRequest
+{
+    if (!_cityName) {
+        _cityName=@"北京";
+    }
+    DPAPI* api=[[DPAPI alloc] init];
+    NSMutableDictionary * params1=[[NSMutableDictionary alloc] init];
+    [params1 setObject:@(self.pageNumber) forKey:@"page"];
+    [params1 setValue:@20 forKey:@"limit"];
+    
+    [params1 setValue:_categoryName forKey:@"category"];
+    [params1 setValue:_regionName forKey:@"region"];
+    [params1 setValue:_cityName forKey:@"city"];
+    
+    [api requestWithURL:@"v1/deal/find_deals" params:params1 delegate:self];
+}
+
+#pragma mark -DPRequstDelegate
+
+-(void)request:(DPRequest *)request didReceiveResponse:(NSURLResponse *)response
+{
+    
+}
+
+//数据处理好以后
+-(void)request:(DPRequest *)request didFinishLoadingWithResult:(id)result
+{
+#warning  注意NSNull ,nil (block), 0(option)
+    
+    _totalArray=[DownData arryWithJsonData:result];
+    [self.collectionView reloadData];
+    
+}
+
+-(void)request:(DPRequest *)request didFailWithError:(NSError *)error
+{
+    NSLog(@"%@",[error description]);
+
+}
+
+
 #pragma mark <UICollectionViewDelegate>
 
-/*
-// Uncomment this method to specify if the specified item should be highlighted during tracking
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
-	return YES;
-}
-*/
+//添加监听后，需要dealloc
+-(void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:City_Change_Notifaction object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:Region_Change_Notifaction object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:Category_Change_Notifaction object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:SubCategory_Change_Notifaction object:nil];
+    
+   
+    [[NSNotificationCenter defaultCenter] removeObserver:firstItem.customView name:Region_Change_Notifaction object:nil];
 
-/*
-// Uncomment this method to specify if the specified item should be selected
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    return YES;
+    [[NSNotificationCenter defaultCenter] removeObserver:secondItem.customView name:SubCategory_Change_Notifaction object:nil];
 }
-*/
-
-/*
-// Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-- (BOOL)collectionView:(UICollectionView *)collectionView shouldShowMenuForItemAtIndexPath:(NSIndexPath *)indexPath {
-	return NO;
-}
-
-- (BOOL)collectionView:(UICollectionView *)collectionView canPerformAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	return NO;
-}
-
-- (void)collectionView:(UICollectionView *)collectionView performAction:(SEL)action forItemAtIndexPath:(NSIndexPath *)indexPath withSender:(id)sender {
-	
-}
-*/
-
 @end

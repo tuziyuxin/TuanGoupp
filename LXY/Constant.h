@@ -11,6 +11,9 @@
 #define City_Change_Notifaction @"cityDidChanged"
 #define city_name @"cityName"
 
+#define Region_Change_Notifaction @"regionDidChanged"
+#define region_name @"regionName"
+
 #define Category_Change_Notifaction @"categoryDidChanged"
 #define category_name @"categoryName"
 

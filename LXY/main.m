@@ -11,6 +11,12 @@
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
+        /*删除先
+        NSString* sti=@"12";
+        NSAttributedString* str=[[NSAttributedString alloc] initWithString:sti
+                                                                attributes:@{NSStrokeColorAttributeName:[UIColor redColor],NSStrikethroughStyleAttributeName:@(NSUnderlineStyleDouble)}];
+        NSLog(@"%@",str);
+         */
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

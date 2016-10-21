@@ -8,18 +8,11 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ChangCityViewController"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="ChangCityView">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <rect key="frame" x="0.0" y="0.0" width="293" height="382"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="NUx-PK-jZ3">
-                    <rect key="frame" x="0.0" y="0.0" width="608" height="44"/>
-                    <textInputTraits key="textInputTraits"/>
-                    <connections>
-                        <outlet property="delegate" destination="iN0-l3-epB" id="fsR-iL-4nB"/>
-                    </connections>
-                </searchBar>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JbR-Xu-xAW">
-                    <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                    <rect key="frame" x="0.0" y="44" width="293" height="556"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
                         <outlet property="dataSource" destination="iN0-l3-epB" id="u1t-bA-stF"/>
@@ -27,32 +20,45 @@
                     </connections>
                 </tableView>
                 <view hidden="YES" alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ttl-dL-1fj">
-                    <rect key="frame" x="0.0" y="44" width="600" height="556"/>
-                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <rect key="frame" x="0.0" y="44" width="293" height="556"/>
+                    <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
                 <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ykN-cX-6uR" customClass="SearchTableView">
-                    <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                    <rect key="frame" x="0.0" y="44" width="293" height="338"/>
                 </view>
+                <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="NUx-PK-jZ3">
+                    <rect key="frame" x="0.0" y="0.0" width="301" height="44"/>
+                    <textInputTraits key="textInputTraits"/>
+                    <connections>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="fsR-iL-4nB"/>
+                    </connections>
+                </searchBar>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="NUx-PK-jZ3" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="0eq-bR-Bhd"/>
-                <constraint firstAttribute="bottom" secondItem="ttl-dL-1fj" secondAttribute="bottom" id="46N-1Y-9IE"/>
+                <constraint firstAttribute="trailing" secondItem="ykN-cX-6uR" secondAttribute="trailing" id="1OQ-Ra-iMx"/>
+                <constraint firstItem="ykN-cX-6uR" firstAttribute="top" secondItem="NUx-PK-jZ3" secondAttribute="bottom" id="1xX-oO-aTH"/>
+                <constraint firstAttribute="bottom" secondItem="ttl-dL-1fj" secondAttribute="bottom" constant="-218" id="46N-1Y-9IE"/>
                 <constraint firstItem="JbR-Xu-xAW" firstAttribute="top" secondItem="NUx-PK-jZ3" secondAttribute="bottom" id="4z6-aE-usp"/>
-                <constraint firstItem="ykN-cX-6uR" firstAttribute="top" secondItem="NUx-PK-jZ3" secondAttribute="bottom" id="7NV-gz-YzW"/>
                 <constraint firstItem="ttl-dL-1fj" firstAttribute="leading" secondItem="JbR-Xu-xAW" secondAttribute="leading" id="Azo-f6-CFb"/>
                 <constraint firstItem="NUx-PK-jZ3" firstAttribute="leading" secondItem="ttl-dL-1fj" secondAttribute="leading" id="GMd-9g-nMm"/>
                 <constraint firstItem="NUx-PK-jZ3" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="GpA-RM-zqn"/>
-                <constraint firstAttribute="bottom" secondItem="ykN-cX-6uR" secondAttribute="bottom" id="Lwa-B0-UNw"/>
-                <constraint firstAttribute="trailing" secondItem="ykN-cX-6uR" secondAttribute="trailing" id="TqF-IN-Gdd"/>
+                <constraint firstAttribute="trailing" secondItem="ykN-cX-6uR" secondAttribute="trailing" id="aZH-4N-pEY"/>
+                <constraint firstAttribute="trailing" secondItem="ykN-cX-6uR" secondAttribute="trailing" id="bxU-j2-9lt"/>
                 <constraint firstAttribute="trailing" secondItem="JbR-Xu-xAW" secondAttribute="trailing" id="cMN-DM-IFK"/>
-                <constraint firstItem="ykN-cX-6uR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dPy-O4-DKT"/>
-                <constraint firstAttribute="bottom" secondItem="JbR-Xu-xAW" secondAttribute="bottom" id="dlX-z8-uhS"/>
+                <constraint firstAttribute="bottom" secondItem="JbR-Xu-xAW" secondAttribute="bottom" constant="-218" id="dlX-z8-uhS"/>
                 <constraint firstItem="JbR-Xu-xAW" firstAttribute="top" secondItem="ttl-dL-1fj" secondAttribute="top" id="g5e-fX-o8N"/>
+                <constraint firstItem="ykN-cX-6uR" firstAttribute="top" secondItem="NUx-PK-jZ3" secondAttribute="bottom" id="kyg-pR-giX"/>
+                <constraint firstItem="ykN-cX-6uR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="loJ-bW-5um"/>
                 <constraint firstAttribute="trailing" secondItem="ttl-dL-1fj" secondAttribute="trailing" id="oXP-U9-fYQ"/>
                 <constraint firstItem="JbR-Xu-xAW" firstAttribute="top" secondItem="NUx-PK-jZ3" secondAttribute="bottom" id="qiE-jd-CH6"/>
+                <constraint firstItem="ykN-cX-6uR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="rMT-RQ-UC6"/>
                 <constraint firstItem="JbR-Xu-xAW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="sUg-Ju-KPx"/>
+                <constraint firstItem="ykN-cX-6uR" firstAttribute="top" secondItem="NUx-PK-jZ3" secondAttribute="bottom" id="uXl-SS-0XP"/>
+                <constraint firstAttribute="bottom" secondItem="ykN-cX-6uR" secondAttribute="bottom" id="ycK-az-55J"/>
                 <constraint firstAttribute="trailing" secondItem="NUx-PK-jZ3" secondAttribute="trailing" constant="-8" id="zsT-F1-6yn"/>
+                <constraint firstAttribute="trailing" secondItem="ykN-cX-6uR" secondAttribute="trailing" id="zvu-Ut-KNA"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -61,7 +67,7 @@
                 <outlet property="searchBar" destination="NUx-PK-jZ3" id="baU-qv-Xwf"/>
                 <outlet property="tableView" destination="ykN-cX-6uR" id="cBn-Kd-1Su"/>
             </connections>
-            <point key="canvasLocation" x="461" y="211"/>
+            <point key="canvasLocation" x="307.5" y="102"/>
         </view>
     </objects>
 </document>

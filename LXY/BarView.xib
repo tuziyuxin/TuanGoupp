@@ -86,6 +86,8 @@
             </variation>
             <connections>
                 <outlet property="button" destination="CN7-lg-uda" id="x2v-xx-eBn"/>
+                <outlet property="firstLabel" destination="gsT-Nb-8gz" id="2Rq-gl-qC7"/>
+                <outlet property="secondLabel" destination="Of0-gz-SHD" id="ajJ-Ze-Z8M"/>
             </connections>
             <point key="canvasLocation" x="249.5" y="226.5"/>
         </view>

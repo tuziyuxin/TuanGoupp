@@ -7,6 +7,7 @@
 //
 
 #import "PopView.h"
+#import "Constant.h"
 
 
 @interface PopView()<UITableViewDelegate,UITableViewDataSource>
@@ -82,7 +83,17 @@
         _selectedIndex=indexPath.row;
         _subArray=[self.dataSource subDataOfRightViewAtIndex:indexPath.row View:self];
         
+        if (!_subArray) {
+            [[NSNotificationCenter defaultCenter] postNotificationName:Category_Change_Notifaction object:nil userInfo:@{category_name:[self.dataSource titleForRowAtLeft:indexPath.row View:self]}];
+        }
         [self.rightTV reloadData];
+    }else
+    {
+        [[NSNotificationCenter defaultCenter] postNotificationName:SubCategory_Change_Notifaction
+                                                            object:nil
+                                                          userInfo:@{subCategory_name: _subArray[indexPath.row],
+                                                                     category_name:[self.dataSource titleForRowAtLeft:_selectedIndex View:self]}];
+        
     }
 }
 

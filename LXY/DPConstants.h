@@ -14,6 +14,6 @@
 #define kDPAPIErrorDomain           @"DPAPIErrorDomain"
 #define kDPAPIErrorCodeKey          @"DPAPIErrorCodeKey"
 
-#define kDPAPIDomain				@"http://api.dianping.com/"
+#define kDPAPIDomain				@"https://api.dianping.com/"
 
 #endif

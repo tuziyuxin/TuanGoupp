@@ -17,17 +17,25 @@
 #define kDPRequestTimeOutInterval   180.0
 #define kDPRequestStringBoundary    @"9536429F8AAB441bA4055A74B72B57DE"
 
+
+
 @interface DPAPI ()
 - (void)requestDidFinish:(DPRequest *)request;
 @end
+
+
+
+
 
 @interface DPRequest () <NSURLConnectionDelegate>
 
 @end
 
 @implementation DPRequest {
+    
     NSURLConnection                 *_connection;
     NSMutableData                   *_responseData;
+    
 }
 
 #pragma mark - Private Methods
@@ -189,22 +197,30 @@
     return str;
 }
 
+//sign的生成：以appkey为首，中间为key1value1key2value2,最后为app secret
+//将整个字符串进行sha-1计算，并转换为16进制。
+//转换为大写
+
 + (NSString *)serializeURL:(NSString *)baseURL params:(NSDictionary *)params
 {
+//请求的字符串为utf8编码，并且中间加上％字符
 	NSURL* parsedURL = [NSURL URLWithString:[baseURL stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	NSMutableDictionary *paramsDic = [NSMutableDictionary dictionaryWithDictionary:[self parseQueryString:[parsedURL query]]];
+//把所有的key和value变为utf8 形式，中间不再有％。保存到数组里
 	if (params) {
 		[paramsDic setValuesForKeysWithDictionary:params];
 	}
 	
 	NSMutableString *signString = [NSMutableString stringWithString:kDPAppKey];
 	NSMutableString *paramsString = [NSMutableString stringWithFormat:@"appkey=%@",kDPAppKey];
+//key的排序
 	NSArray *sortedKeys = [[paramsDic allKeys] sortedArrayUsingSelector: @selector(compare:)];
 	for (NSString *key in sortedKeys) {
 		[signString appendFormat:@"%@%@", key, [paramsDic objectForKey:key]];
 		[paramsString appendFormat:@"&%@=%@", key, [paramsDic objectForKey:key]];
 	}
 	[signString appendString:kDPAppSecret];
+//进行sha－1的计算
 	unsigned char digest[CC_SHA1_DIGEST_LENGTH];
 	NSData *stringBytes = [signString dataUsingEncoding: NSUTF8StringEncoding];
 	if (CC_SHA1([stringBytes bytes], [stringBytes length], digest)) {
@@ -212,9 +228,11 @@
 		NSMutableString *digestString = [NSMutableString stringWithCapacity:CC_SHA1_DIGEST_LENGTH];
 		for (int i=0; i<CC_SHA1_DIGEST_LENGTH; i++) {
 			unsigned char aChar = digest[i];
+//把里面的每个字节都变成16进制
 			[digestString appendFormat:@"%02X", aChar];
 		}
 		[paramsString appendFormat:@"&sign=%@", [digestString uppercaseString]];
+//返回总的:https: api.dianping.com/v1/deal/find_deals?appkey=975791789&category=%E8%A5%BF%E5%8C%97%E8%8F%9C&city=%E5%8C%97%E4%BA%AC&sign=B70EFE1CC08981467A8AA6118A3C5AF4B0D8CDAB
 		return [NSString stringWithFormat:@"%@://%@%@?%@", [parsedURL scheme], [parsedURL host], [parsedURL path], [paramsString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
 	} else {
 		return nil;
@@ -234,14 +252,17 @@
     return request;
 }
 
+//开始进入到连接状态
 - (void)connect
 {
+//urlString是将每一个参数进行了utf8编码，并且有sign。
     NSString* urlString = [[self class] serializeURL:_url params:_params];
+//设置request，其中包括NSURLRequest的缓存类型
     NSMutableURLRequest* request =
     [NSMutableURLRequest requestWithURL:[NSURL URLWithString:urlString]
                             cachePolicy:NSURLRequestReloadIgnoringLocalCacheData
                         timeoutInterval:kDPRequestTimeOutInterval];
-    
+//将request的http设置为get。
     [request setHTTPMethod:@"GET"];
     _connection = [[NSURLConnection alloc] initWithRequest:request delegate:self startImmediately:YES];
 }
